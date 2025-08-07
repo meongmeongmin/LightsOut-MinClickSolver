@@ -107,7 +107,7 @@ public:
 unique_ptr<Board> board;
 vector<string> logs;
 string guide;
-string nextNum;
+string caseNum;
 
 void clearConsole()
 {
@@ -184,7 +184,7 @@ bool isValid(int& count)
                 count++;
 
 #pragma region Log
-                string log = nextNum;
+                string log = caseNum;
                 log += board->render(y, x);
                 log += "===========================================\n";
                 log += format("click(row, col) : ({}, {})\n", y, x);
@@ -218,8 +218,8 @@ int bruteForce()
         board->setTiles(backupTiles);
 
 #pragma region Log
-        nextNum = format("{}next : {}\n", guide, mask + 1);
-        string log = nextNum;
+        caseNum = format("{}case number : {}\n", guide, mask + 1);
+        string log = caseNum;
         log += board->render();
         log += "===========================================\n";
         log += "click(row, col) : Reset to the beginning.\n";
@@ -236,7 +236,7 @@ int bruteForce()
                 count++;
 
 #pragma region Log
-                string log2 = nextNum;
+                string log2 = caseNum;
                 log2 += board->render(0, x);
                 log2 += "===========================================\n";
                 log2 += format("click(row, col) : (0, {})\n", x);
